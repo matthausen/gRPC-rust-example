@@ -1,6 +1,15 @@
 A basic example of a gRPC server in Rust using tonic
 
-### How to run
+## How to run
 
-Server: - `cargo run --build server`
-Client: - `cargo run --build client`
+
+### Install dependencies 
+- `cargo install --path .`
+
+
+### Run
+Server: 
+- `cargo run --bin server`
+
+Client: 
+- `cargo run --bin client`
