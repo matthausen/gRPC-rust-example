@@ -13,4 +13,4 @@ run-server:
 run-client:
 	cargo run --bin client
 
-.PHONY: all help
+.PHONY: all help install run-server run-client
