@@ -12,9 +12,14 @@ edition = "2018"
     path = "src/client.rs"
 
 [dependencies]
+
 tonic = "0.4"
 prost = "0.7"
-tokio = { version = "1.0", features = ["macros", "rt-multi-thread"] }
+tokio = { version = "1.0", features = ["macros", "rt-multi-thread", "full"] }
+rusoto = { version = "0.24.2" }
+rusoto_core = "0.47.0"
+rusoto_dynamodb = "0.47.0"
 
 [build-dependencies]
+
 tonic-build = "0.4"

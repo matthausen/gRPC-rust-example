@@ -1,0 +1,20 @@
+version: "3.7"
+services:
+  dynamodb:
+    command: "-jar DynamoDBLocal.jar -sharedDb -dbPath ./data"
+    image: amazon/dynamodb-local:1.17.0
+    container_name: dynamodb
+    ports:
+      - "8000:8000"
+    volumes:
+      - "./.docker/dynamodb:/home/dynamodblocal/data:rw"
+    working_dir: /home/dynamodblocal
+  
+  dynamodb-admin:
+    image: aaronshaf/dynamodb-admin:dependabot_npm_and_yarn_aws-sdk-2.952.0:rw
+    ports:
+      - "8001:8001"
+    environment:
+      DYNAMO_ENDPOINT: "http://dynamodb:8000"
+    depends_on:
+      - dynamodb
