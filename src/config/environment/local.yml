@@ -1,0 +1,4 @@
+something: true
+dynamodb:
+    table: "local"
+    endpoint: "http://localhost:8000"

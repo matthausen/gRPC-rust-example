@@ -1,6 +1,9 @@
 use tonic::{transport:: Server, Request, Response, Status};
 use hello::say_server::{Say, SayServer};
 use hello::{SayResponse, SayRequest};
+
+mod config;
+
 pub mod hello {
     tonic::include_proto!("hello"); // The string specified here must match the proto package name
 }
@@ -23,6 +26,11 @@ impl Say for MySay {
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
+    // load config file 
+    let config = config::load_config();
+    println!("CONFIG {:?}", config);
+    
+    // start server
     let addr = "[::1]:50051".parse().unwrap();
     let say = MySay::default();
     println!("Server listening on {}", addr);

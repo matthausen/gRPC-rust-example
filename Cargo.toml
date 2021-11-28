@@ -19,6 +19,9 @@ tokio = { version = "1.0", features = ["macros", "rt-multi-thread", "full"] }
 rusoto = { version = "0.24.2" }
 rusoto_core = "0.47.0"
 rusoto_dynamodb = "0.47.0"
+serde = { version = "1.0", features = ["derive"] }
+serde_derive = "1.0.88"
+serde_yaml = "0.8.7"
 
 [build-dependencies]
 
